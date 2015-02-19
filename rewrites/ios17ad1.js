@@ -27,7 +27,7 @@
 				"metadata" : {
 					"property" : "mtv_news",
 					"hub" : "breaking",
-					"slot": 21,
+					"slot"": 21,
 					"is_main" : true
 				},
 				"mappings" : {
