@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+    <head>
+
+        <title>DFP Test</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    </head>
+
+<body>
+ 
+    <!--Do page-level configuration-->
+    <script>
+        //Toggle auto-firing of ads, ensuring namespaces have been defined without overwriting them.
+        if (typeof MTVN == "undefined") MTVN = {};
+        if (typeof MTVN.config == "undefined") MTVN.config = {};
+        if (typeof MTVN.config.btg == "undefined") MTVN.config.btg = {};
+        if (typeof MTVN.config.btg.DoubleClick == "undefined") MTVN.config.btg.DoubleClick = {};
+      //  MTVN.config.btg.DoubleClick.auto = true;
+        
+         MTVN.config.btg.DoubleClick.auto = true;
+
+
+
+        
+       myPageContextData = { "myCompany.name1" : "value1", "myCompany.name2" : "value2" };
+       myLinkContextData = { "myLink1.name1" : "Link1", "myLink2.name2" : "Link2" };
+        
+ 
+        //Define page data
+       var vmn_page_data = {
+            "metadata": {
+                "property": "mtv",
+                "hub": "shows",
+                "franchise": "teen_mom_2",
+                "section": "full-episodes",
+                "title": "a-teen-mom-gets-pregnant.",
+                "is_main": true,
+                "season": 2,
+                "episode": "202"
+            },
+            "mappings": {
+                "ad-unit": {
+                    "1": "@property",
+                    "2": "@hub",
+                    "3": "@franchise"
+                },
+                "key-values": {
+                    "sea": "@season",
+                    "ep": "@episode",
+                    "foo": "bar"
+               		 }
+              },        
+        	"settings" : {
+        		"reload"  : true,
+        		"reload_interval":    10000,
+        		"disableAutoSlots":true
+   			}
+        }; 
+        
+    </script>
+ 
+    <!--Source-in Coda from Aria-->
+    <script src="http://btg.mtvnservices.com/aria/coda.html?site=mtv.com&Ads_DFP=1&Ads=0&stage=1"></script>
+    		
+ <script>
+ btg.config.DoubleClick.onDemand = true;
+ </script>
+    <!--Define a 728x90 ad slot-->
+
+ <div id="my_ad_1" data-ad-sizes="728x90" data-ad-keyvalues="key1=value1,key2=value2;slot7" data-ad-reload-interval="15000"></div>
+    
+    <div id="my_ad_2" data-ad-sizes="1x1" data-ad-keyvalues="key1=value11,key2=value12;slot=8"></div>
+    
+ <!--  <div id="my_ad_3" data-ad-sizes="5x5" data-ad-keyvalues="key3=value14,key4=value15;slot=9"></div> -->
+    
+    <div id="my_ad_4" data-ad-sizes="6x6" data-ad-keyvalues="key33=value141,key34=value151;slot=10"></div>
+    
+    <div id="my_ad_5" data-ad-sizes="300x250" data-ad-keyvalues="key33=value141,key34=value151;slot=11"></div>
+    <div id="my_ad_3"></div>
+
+ 
+ 
+	<script>
+
+		
+	function tryme() {
+		btg.config.DoubleClick.adUnit = "/new_ads_config/";
+		btg.DoubleClick.createAd({size:"300x250"}, "my_ad_3"); /// adUnit: "/new_ad/" , 
+	
+	}	
+		
+	 </script>
+	 
+
+	 
+	 <button onclick="btg.DoubleClick.refresh();">Refresh Ads</button>
+	 <br>
+	 <br>
+	 <button onclick="btg.DoubleClick.refresh('my_ad_1');">Refresh first ad</button>
+	 <br><br>
+	 <button id="mybutt" onclick="tryme()">Create New Ad</button>
+	 
+	 
+	 <script>
+
+ 
+ 
+
+
+   //    btg.DoubleClick.createAdsFromMarkup();
+        
+     btg.Controller.sendPageCall({ contextData : { "myCompany.name1" : "value1", "myCompany.name2" : "value2" }});
+        
+     btg.Controller.sendLinkEvent({ linkName : "LinkNamevalue", linkType : "otype", contextData : { "mylink.link1" :  "value1", "mylink.link2" : "value2" }});
+      
+	
+	  btg.Controller.clearContextData();
+	btg.Controller.sendPageCall({ contextData : { "myCompany2.name11" : "value11", "myCompany2.name22" : "value22" }});
+	 
+	 
+	    btg.Controller.setContextData(myPageContextData , true );
+	    btg.Controller.sendPageCall();
+	    
+	    
+	   btg.Controller.clearContextData();
+		btg.Controller.sendLinkEvent({ linkName : "LinkNamevalue", linkType : "otype", contextData : { "mylink.link1" :  "value1", "mylink.link2" : "value2" }});
+      
+     
+
+      
+      
+    </script>
+ 
+</body>
